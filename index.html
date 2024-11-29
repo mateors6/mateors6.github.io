@@ -1,283 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head> <title> Mateo Rodríguez</title></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mateo Rodríguez</title>
+  <style>
+    body {
+      background: #191828;
+      color: #efedef;
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 1.6em;
+      margin: 0;
+      padding: 100px;
+      width: auto;
+    }
+
+    h1 {
+      font-size: 40px;
+      line-height: 0.8em;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .made-with {
+      background: #fd264f;
+      color: #fff;
+      display: block;
+      font-size: 12px;
+      line-height: 1em;
+      margin: 0;
+      padding: 5px 110px;
+      position: fixed;
+      top: 20px;
+      right: -100px;
+      text-align: center;
+      text-decoration: none;
+      transform: rotate(45deg);
+    }
+
+    .documentation {
+      color: #fd264f;
+    }
+
+    a:link {
+      color: rgb(32, 243, 32);
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    /* Styling for tab content */
+    .tab-content {
+      display: none;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateX(-100%); /* Starts off-screen to the left */
+    }
+
+    /* Display the active tab */
+    .tab-content.active-tab {
+      display: block;
+      opacity: 1;
+      transform: translateX(0); /* Move to original position when active */
+    }
+
+    /* Styling for the navigation links */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tabs a {
+      color: #efedef;
+      font-size: 1.1em;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      margin: 0 10px;
+      text-align: center;
+      background-color: #333;
+      text-decoration: none;
+      border-radius: 5px;
+      border: 1px solid #444;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tabs a:hover {
+      background-color: #fd264f;
+    }
+
+    .tabs a.active-tab {
+      background-color: #fd264f;
+    }
+
+  </style>
+</head>
 
 <body>
 
-  <style>    body {
-          background: #191828;
-          color: #efedef;
-          font-family: "Roboto", Arial, Helvetica, sans-serif;
-          font-size: 16px;
-          font-weight: 300;
-          letter-spacing: 0.01em;
-          line-height: 1.6em;
-          margin: 0;
-          padding: 100px;
-          width: auto; }
-        h1 {
-          font-size: 40px;
-          line-height: 0.8em;
-          color: rgba(255,255,255,0.2);}
-        .made-with {
-            background: #fd264f;
-            color: #fff;
-            display: block;
-            font-size: 12px;
-            line-height: 1em;
-            margin: 0;
-            padding: 5px 110px;
-            position: fixed;
-            top: 20px;
-            right: -100px;
-            text-align: center;
-            text-decoration: none;
-            transform: rotate(45deg);
-        }
-        .documentation {
-            color: #fd264f;
-        }
-        button:focus,
-        input:focus,
-        textarea:focus,
-        select:focus {
-          outline: none; }
-          .tab-content {
-  width: 100%; /* Full width for content */
-  padding: 20px;
-  transition: height 0.3s ease-in-out;
-  overflow: hidden; /* Prevent content overflow */
-}
-        .tabs {
-          display: block;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: flex;
-          -webkit-flex-wrap: wrap;
-          -moz-flex-wrap: wrap;
-          flex-wrap: wrap;
-          margin: 0;
-          overflow: hidden; }
-          .tabs [class^="tab"] label,
-          .tabs [class*=" tab"] label {
-            color: #efedef;
-            cursor: pointer;
-            display: block;
-            font-size: 1.1em;
-            font-weight: 300;
-            line-height: 1em;
-            padding: 2rem 0;
-            text-align: center; }
-          .tabs [class^="tab"] [type="radio"],
-          .tabs [class*=" tab"] [type="radio"] {
-            border-bottom: 1px solid rgba(239, 237, 239, 0.5);
-            cursor: pointer;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            display: block;
-            width: 100%;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out; }
-            .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
-            .tabs [class*=" tab"] [type="radio"]:hover,
-            .tabs [class*=" tab"] [type="radio"]:focus {
-              border-bottom: 1px solid #fd264f; }
-            .tabs [class^="tab"] [type="radio"]:checked,
-            .tabs [class*=" tab"] [type="radio"]:checked {
-              border-bottom: 2px solid #fd264f; }
-            .tabs [class^="tab"] [type="radio"]:checked + div,
-            .tabs [class*=" tab"] [type="radio"]:checked + div {
-              opacity: 1; }
-            .tabs [class^="tab"] [type="radio"] + div,
-            .tabs [class*=" tab"] [type="radio"] + div {
-              display: block;
-              opacity: 0;
-              padding: 2rem 0;
-              width: 90%;
-              -webkit-transition: all 0.3s ease-in-out;
-              -moz-transition: all 0.3s ease-in-out;
-              -o-transition: all 0.3s ease-in-out;
-              transition: all 0.3s ease-in-out; }
-          .tabs .tab-4 {
-            width: 25%; }
-            .tabs .tab-4 [type="radio"] + div {
-              width: 200%;
-              margin-left: 200%; }
-            .tabs .tab-4 [type="radio"]:checked + div {
-              margin-left: 0; }
-            .tabs .tab-4:last-child [type="radio"] + div {
-              margin-left: 100%; }
-            .tabs .tab-4:last-child [type="radio"]:checked + div {
-              margin-left: -100%; }
+  <h1>Hey, I am Mateo Rodríguez and this is my personal website.</h1>
+  <p>Latest update: 29/11/24 (DD/MM/YY)</p>
 
-              a:link {
-  color: rgb(32, 243, 32);
-  background-color: transparent;
-  text-decoration: none;
-}
-
-General tab content styling */
-.tab-content {
-  display: none; /* Initially hide all tabs */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto; /* Enable scrolling when content overflows */
-}
-
-/* Display the active tab */
-input[type="radio"]:checked + .tab-content {
-  display: block;
-}
-
-
-/* Custom heights for each tab */
-#Home {
-  height: 2000px;
-}
-
-#Activities {
-  height: 400px;
-}
-
-#Writings {
-  height: 300px;
-}
-
-#Images {
-  height: 250px;
-}
-  </style>
-  
-  <h1> Hey, I am Mateo Rodríguez and this is my personal website.</h1>
-  <p> Latest update: 29/11/24 (DD/MM/YY)</p>  
-  
-  
+  <!-- Tabs -->
   <div class="tabs">
-    <div class="tab-4">
-      <label for="tab4-1">Home</label>
-      <input id="tab4-1" name="tabs-two" type="radio" checked="checked">
-      <div class = 'tab-content' id='Home'>
-      <h2>
-      Home
-      </h2>
-  
-  <p>
-
-  Welcome! My name is Mateo, and I am currently finishing a Bachelor's degree in Physics at the University of Oviedo. I come from the lovely region of Asturias, which I recommend you to visit.
-  
-  </p>
-  
-  <p> I have created this 'blog' with the main purpose of adding details to what is written in my CV.
-          The <a href="#" id="go-to-activities">History</a> section is used to provide a more elaborated description of my academic history, but in a relaxed style and filled with personal stories.
-          You can download my CV by clicking on the following button:<form method="get" action="CV.pdf">
-              <button type="submit">  CV  </button> </form>
-  </p>
-  
-  <p>
-      Moreover, I have added two sections that are going to be more or less personal. In the <a href="#" id="go-to-writings">Writings</a> section I will be uploading some texts and poems I have written over the years. It is mostly in Spanish, as it is my mother tongue. 
-      The <a href="#" id="go-to-images">Images</a> section will consist of a miscellaneous of pictures taken or produced by me.
-  </p>
-  
-  
-      </div>
-    </div>
-    <div class="tab-4">
-      <label for="tab4-2">History</label>
-      <input id="tab4-2" name="tabs-two" type="radio">
-      <div class = 'tab-content' id='Activities'>
-        <h2>History</h2>
-
-
-
-
-<h4> Cambridge First Certificate in English 2017</h4>
-<p>
-I had been taking private classes for about three years, and for the first time ever I had to prove my English knowledge. 
-
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-    </div>
-  
-    <div class="tab-4">
-      <label for="tab4-3">Writings</label>
-      <input id="tab4-3" name="tabs-two" type="radio">
-      <div class = 'tab-content' id='Writings'>
-        <h4>Writings</h4>
-      </div>
-    </div>
-  
-    <div class="tab-4">
-      <label for="tab4-4">Images</label>
-      <input id="tab4-4" name="tabs-two" type="radio">
-      <div class = 'tab-content' id ='Images '>
-        <h4>Images</h4>
-      </div>
-    </div>
-  
+    <a href="#" id="home-link" class="tab-link">Home</a>
+    <a href="#" id="history-link" class="tab-link">History</a>
+    <a href="#" id="writings-link" class="tab-link">Writings</a>
+    <a href="#" id="images-link" class="tab-link">Images</a>
   </div>
-  
-  
+
+  <!-- Tab Content -->
+  <div class="tab-content" id="home-content">
+    <h2>Home</h2>
+    <p>
+        Welcome! My name is Mateo, and I am currently finishing a Bachelor's degree in Physics at the University of Oviedo. I come from the lovely region of Asturias, which I recommend you to visit.
+        
+   </p>
+        
+        <p> I have created this 'blog' with the main purpose of adding details to what is written in my CV.
+                The <a href='#history-content' class = 'tab-link'>History</a> section is used to provide a more elaborated description of my academic history, but in a relaxed style and filled with personal stories.
+                You can download my CV by clicking on the following button:<form method="get" action="CV.pdf">
+                    <button type="submit">  CV  </button> </form>
+        </p>
+        
+        <p>
+            Moreover, I have added two sections that are going to be more or less personal. In the <a href="#" id="go-to-writings">Writings</a> section I will be uploading some texts and poems I have written over the years. It is mostly in Spanish, as it is my mother tongue. 
+            The <a href="#" id="go-to-images">Images</a> section will consist of a miscellaneous of pictures taken or produced by me.
+        </p> </div>
+
+  <div class="tab-content" id="history-content">
+    <h2>History</h2>
+    <h4>Cambridge First Certificate in English 2017</h4>
+    <p>I had been taking private classes for about three years, and for the first time ever I had to prove my English knowledge.</p>
+  </div>
+
+  <div class="tab-content" id="writings-content">
+    <h4>Writings</h4>
+    <p>Some of my personal writings and poems will be uploaded here.</p>
+  </div>
+
+  <div class="tab-content" id="images-content">
+    <h4>Images</h4>
+    <p>Here are some images that represent my work and life.</p>
+  </div>
+
   <script>
-  
-      // Función genérica para manejar clics y cambiar de pestaña
-      function setupTabNavigation(buttonId, tabId) {
-        document.getElementById(buttonId).addEventListener("click", function (event) {
-          event.preventDefault(); // Evita la recarga de la página
-          document.getElementById(tabId).checked = true; // Activa la pestaña correspondiente
-        });
-      }
-    
-      // Configurar navegación para cada botón
-      setupTabNavigation("go-to-activities", "tab4-2");
-      setupTabNavigation("go-to-writings", "tab4-3");
-      setupTabNavigation("go-to-images", "tab4-4");
-    </script>
-  
+    // Function to switch between tabs when clicking on a link
+    function switchTab(event, tabId) {
+      // Prevent the default link behavior
+      event.preventDefault();
+
+      // Remove active-tab class from all tab contents
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => content.classList.remove('active-tab'));
+
+      // Add active-tab class to the selected tab content
+      document.getElementById(tabId).classList.add('active-tab');
+
+      // Remove active-tab class from all tab links
+      const tabs = document.querySelectorAll('.tab-link');
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+      // Add active-tab class to the selected tab link
+      event.target.classList.add('active-tab');
+    }
+
+    // Set up event listeners for tab links
+    document.getElementById('home-link').addEventListener('click', (event) => switchTab(event, 'home-content'));
+    document.getElementById('history-link').addEventListener('click', (event) => switchTab(event, 'history-content'));
+    document.getElementById('writings-link').addEventListener('click', (event) => switchTab(event, 'writings-content'));
+    document.getElementById('images-link').addEventListener('click', (event) => switchTab(event, 'images-content'));
+
+    // Optionally, set the initial active tab
+    document.getElementById('home-link').click(); // Simulate a click to activate the home tab initially
+  </script>
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const tabInputs = document.querySelectorAll("input[name='tabs-two']");
+  // Function to switch between tabs when clicking on links
+  function switchTab(event, tabId) {
+    event.preventDefault(); // Prevent the default anchor link behavior
 
-  // Function to adjust the height of the body (main scrollbar) based on the active tab
-  function adjustMainScrollbar() {
-    // Get the currently active tab's content
-    const activeTab = document.querySelector("input[name='tabs-two']:checked + .tab-content");
-    
-    if (activeTab) {
-      // Set the body's height to match the active tab's height
-      document.body.style.height = activeTab.scrollHeight + "px";
-    }
+    // Remove active-tab class from all tab contents
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(content => content.classList.remove('active-tab'));
+
+    // Add active-tab class to the selected tab content
+    document.getElementById(tabId).classList.add('active-tab');
+
+    // Remove active-tab class from all links
+    const links = document.querySelectorAll('.tab-link');
+    links.forEach(link => link.classList.remove('active-tab'));
+
+    // Add active-tab class to the selected link
+    event.target.classList.add('active-tab');
   }
 
-  // Run the function on initial load
-  adjustMainScrollbar();
-
-  // Adjust the height whenever a tab is clicked
-  tabInputs.forEach((input) => {
-    input.addEventListener("change", adjustMainScrollbar);
+  // Set up event listeners for anchor links
+  document.querySelectorAll('.tab-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+      const targetId = this.getAttribute('href').substring(1); // Get the tab ID from href
+      switchTab(event, targetId); // Trigger the tab switch
+    });
   });
-});
-</script>
-</body>
-  
 
-  
-  </html>
+</script>
+
+</body>
+
+</html>
