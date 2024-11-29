@@ -5,157 +5,186 @@
 
 <body>
 
-<style>    body {
-        background: #191828;
-        color: #efedef;
-        font-family: "Roboto", Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        font-weight: 300;
-        letter-spacing: 0.01em;
-        line-height: 1.6em;
-        margin: 0;
-        padding: 100px; }
-      h1 {
-        font-size: 40px;
-        line-height: 0.8em;
-        color: rgba(255,255,255,0.2);}
-      .made-with {
-          background: #fd264f;
-          color: #fff;
-          display: block;
-          font-size: 12px;
-          line-height: 1em;
-          margin: 0;
-          padding: 5px 110px;
-          position: fixed;
-          top: 20px;
-          right: -100px;
-          text-align: center;
-          text-decoration: none;
-          transform: rotate(45deg);
-      }
-      .documentation {
-          color: #fd264f;
-      }
-      button:focus,
-      input:focus,
-      textarea:focus,
-      select:focus {
-        outline: none; }
-      
-      .tabs {
-        display: block;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -moz-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin: 0;
-        overflow: hidden; }
-        .tabs [class^="tab"] label,
-        .tabs [class*=" tab"] label {
+  <style>    body {
+          background: #191828;
           color: #efedef;
-          cursor: pointer;
-          display: block;
-          font-size: 1.1em;
+          font-family: "Roboto", Arial, Helvetica, sans-serif;
+          font-size: 16px;
           font-weight: 300;
-          line-height: 1em;
-          padding: 2rem 0;
-          text-align: center; }
-        .tabs [class^="tab"] [type="radio"],
-        .tabs [class*=" tab"] [type="radio"] {
-          border-bottom: 1px solid rgba(239, 237, 239, 0.5);
-          cursor: pointer;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          display: block;
-          width: 100%;
-          -webkit-transition: all 0.3s ease-in-out;
-          -moz-transition: all 0.3s ease-in-out;
-          -o-transition: all 0.3s ease-in-out;
-          transition: all 0.3s ease-in-out; }
-          .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
-          .tabs [class*=" tab"] [type="radio"]:hover,
-          .tabs [class*=" tab"] [type="radio"]:focus {
-            border-bottom: 1px solid #fd264f; }
-          .tabs [class^="tab"] [type="radio"]:checked,
-          .tabs [class*=" tab"] [type="radio"]:checked {
-            border-bottom: 2px solid #fd264f; }
-          .tabs [class^="tab"] [type="radio"]:checked + div,
-          .tabs [class*=" tab"] [type="radio"]:checked + div {
-            opacity: 1; }
-          .tabs [class^="tab"] [type="radio"] + div,
-          .tabs [class*=" tab"] [type="radio"] + div {
+          letter-spacing: 0.01em;
+          line-height: 1.6em;
+          margin: 0;
+          padding: 100px;
+          width: auto; }
+        h1 {
+          font-size: 40px;
+          line-height: 0.8em;
+          color: rgba(255,255,255,0.2);}
+        .made-with {
+            background: #fd264f;
+            color: #fff;
             display: block;
-            opacity: 0;
+            font-size: 12px;
+            line-height: 1em;
+            margin: 0;
+            padding: 5px 110px;
+            position: fixed;
+            top: 20px;
+            right: -100px;
+            text-align: center;
+            text-decoration: none;
+            transform: rotate(45deg);
+        }
+        .documentation {
+            color: #fd264f;
+        }
+        button:focus,
+        input:focus,
+        textarea:focus,
+        select:focus {
+          outline: none; }
+        
+        .tabs {
+          display: block;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+          -moz-flex-wrap: wrap;
+          flex-wrap: wrap;
+          margin: 0;
+          overflow: hidden; }
+          .tabs [class^="tab"] label,
+          .tabs [class*=" tab"] label {
+            color: #efedef;
+            cursor: pointer;
+            display: block;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1em;
             padding: 2rem 0;
-            width: 90%;
+            text-align: center; }
+          .tabs [class^="tab"] [type="radio"],
+          .tabs [class*=" tab"] [type="radio"] {
+            border-bottom: 1px solid rgba(239, 237, 239, 0.5);
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: block;
+            width: 100%;
             -webkit-transition: all 0.3s ease-in-out;
             -moz-transition: all 0.3s ease-in-out;
             -o-transition: all 0.3s ease-in-out;
             transition: all 0.3s ease-in-out; }
-        .tabs .tab-4 {
-          width: 25%; }
-          .tabs .tab-4 [type="radio"] + div {
-            width: 200%;
-            margin-left: 200%; }
-          .tabs .tab-4 [type="radio"]:checked + div {
-            margin-left: 0; }
-          .tabs .tab-4:last-child [type="radio"] + div {
-            margin-left: 100%; }
-          .tabs .tab-4:last-child [type="radio"]:checked + div {
-            margin-left: -100%; }
-        
-
-</style>
-
-<h1> Hey, I am Mateo Rodríguez and this is my personal website.</h1>
-<p> Latest update: 29/11/24 (DD/MM/YY)</p>  
-
-
-<div class="tabs">
-  <div class="tab-4">
-    <label for="tab4-1">Home</label>
-    <input id="tab4-1" name="tabs-two" type="radio" checked="checked">
-    <div>
-      <h4>Home</h4>
-        <p> I created this 'blog' with the main purpose of adding details to what I have in my CV. The section 'Activities' is used to provide a more elaborated description of my academic history. You can download my CV <a href = 'CV.pdf' download ><u>here</u>.</a></p>
-    </p>
+            .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
+            .tabs [class*=" tab"] [type="radio"]:hover,
+            .tabs [class*=" tab"] [type="radio"]:focus {
+              border-bottom: 1px solid #fd264f; }
+            .tabs [class^="tab"] [type="radio"]:checked,
+            .tabs [class*=" tab"] [type="radio"]:checked {
+              border-bottom: 2px solid #fd264f; }
+            .tabs [class^="tab"] [type="radio"]:checked + div,
+            .tabs [class*=" tab"] [type="radio"]:checked + div {
+              opacity: 1; }
+            .tabs [class^="tab"] [type="radio"] + div,
+            .tabs [class*=" tab"] [type="radio"] + div {
+              display: block;
+              opacity: 0;
+              padding: 2rem 0;
+              width: 90%;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out; }
+          .tabs .tab-4 {
+            width: 25%; }
+            .tabs .tab-4 [type="radio"] + div {
+              width: 200%;
+              margin-left: 200%; }
+            .tabs .tab-4 [type="radio"]:checked + div {
+              margin-left: 0; }
+            .tabs .tab-4:last-child [type="radio"] + div {
+              margin-left: 100%; }
+            .tabs .tab-4:last-child [type="radio"]:checked + div {
+              margin-left: -100%; }
+          
+  a:link {
+  color: rgb(15, 255, 15);
+  background-color: transparent;
+  text-decoration: none;
+    }
+  </style>
+  
+  <h1> Hey, I am Mateo Rodríguez and this is my personal website.</h1>
+  <p> Latest update: 29/11/24 (DD/MM/YY)</p>  
+  
+  
+  <div class="tabs">
+    <div class="tab-4">
+      <label for="tab4-1">Home</label>
+      <input id="tab4-1" name="tabs-two" type="radio" checked="checked">
+      <div>
+      <h2>
+      Home
+      </h2>
+      <p> I have created this 'blog' with the main purpose of adding details to what I have in my CV. 
+          The <a href="#" id="go-to-activities">Activities</a> section is used to provide a more elaborated description of my academic history. 
+          You can download my CV by clicking on the following button:<form method="get" action="CV.pdf">
+              <button type="submit">  CV  </button> </form>
+          </p>
+      <p>
+      Moreover, I have added two sections that are going to be more or less personal. In the <a href="#" id="go-to-writings">Writings</a> section I will be uploading some texts and poems I have written over the years; they are mainly in Spanish.
+      The <a href="#" id="go-to-images">Images</a> section will consist of a miscellaneous of pictures taken by me, either of Asturias 
+      </p>
+  
+  
+      </div>
     </div>
-  </div>
-  <div class="tab-4">
-    <label for="tab4-2">Activities</label>
-    <input id="tab4-2" name="tabs-two" type="radio">
-    <div>
-      <h4>Activities</h4>
+    <div class="tab-4">
+      <label for="tab4-2">Activities</label>
+      <input id="tab4-2" name="tabs-two" type="radio">
+      <div>
+        <h4>Activities</h4>
+      </div>
     </div>
-  </div>
-
-  <div class="tab-4">
-    <label for="tab4-3">Writings</label>
-    <input id="tab4-3" name="tabs-two" type="radio">
-    <div>
-      <h4>Writings</h4>
+  
+    <div class="tab-4">
+      <label for="tab4-3">Writings</label>
+      <input id="tab4-3" name="tabs-two" type="radio">
+      <div>
+        <h4>Writings</h4>
+      </div>
     </div>
-  </div>
-
-  <div class="tab-4">
-    <label for="tab4-4">Images</label>
-    <input id="tab4-4" name="tabs-two" type="radio">
-    <div>
-      <h4>Images</h4>
+  
+    <div class="tab-4">
+      <label for="tab4-4">Images</label>
+      <input id="tab4-4" name="tabs-two" type="radio">
+      <div>
+        <h4>Images</h4>
+      </div>
     </div>
+  
   </div>
-
-</div>
-
-
-
-
-
-
-</body>
-
-</html>
+  
+  
+  <script>
+      // Función genérica para manejar clics y cambiar de pestaña
+      function setupTabNavigation(buttonId, tabId) {
+        document.getElementById(buttonId).addEventListener("click", function (event) {
+          event.preventDefault(); // Evita la recarga de la página
+          document.getElementById(tabId).checked = true; // Activa la pestaña correspondiente
+        });
+      }
+    
+      // Configurar navegación para cada botón
+      setupTabNavigation("go-to-activities", "tab4-2");
+      setupTabNavigation("go-to-writings", "tab4-3");
+      setupTabNavigation("go-to-images", "tab4-4");
+    </script>
+  
+  </body>
+  
+  
+  
+  </html>
