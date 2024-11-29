@@ -43,7 +43,12 @@
         textarea:focus,
         select:focus {
           outline: none; }
-        
+          .tab-content {
+  width: 100%; /* Full width for content */
+  padding: 20px;
+  transition: height 0.3s ease-in-out;
+  overflow: hidden; /* Prevent content overflow */
+}
         .tabs {
           display: block;
           display: -webkit-flex;
@@ -108,7 +113,43 @@
               margin-left: 100%; }
             .tabs .tab-4:last-child [type="radio"]:checked + div {
               margin-left: -100%; }
-       
+
+              a:link {
+  color: rgb(32, 243, 32);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+General tab content styling */
+.tab-content {
+  display: none; /* Initially hide all tabs */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Enable scrolling when content overflows */
+}
+
+/* Display the active tab */
+input[type="radio"]:checked + .tab-content {
+  display: block;
+}
+
+
+/* Custom heights for each tab */
+#Home {
+  height: 800px;
+}
+
+#Activities {
+  height: 400px;
+}
+
+#Writings {
+  height: 300px;
+}
+
+#Images {
+  height: 250px;
+}
   </style>
   
   <h1> Hey, I am Mateo Rodríguez and this is my personal website.</h1>
@@ -119,7 +160,7 @@
     <div class="tab-4">
       <label for="tab4-1">Home</label>
       <input id="tab4-1" name="tabs-two" type="radio" checked="checked">
-      <div>
+      <div class = 'tab-content' id='Home'>
       <h2>
       Home
       </h2>
@@ -129,15 +170,15 @@
   
   </p>
   
-  <p> I have created this 'blog' with the main purpose of adding details to what is written in my CV. 
-          The <a href="#" id="go-to-activities">Activities</a> section is used to provide a more elaborated description of my academic history. 
+  <p> I have created this 'blog' with the main purpose of adding details to what is written in my CV.
+          The <a href="#" id="go-to-activities">Activities</a> section is used to provide a more elaborated description of my academic history, but in a relaxed style and filled with personal stories.
           You can download my CV by clicking on the following button:<form method="get" action="CV.pdf">
               <button type="submit">  CV  </button> </form>
   </p>
   
   <p>
-      Moreover, I have added two sections that are going to be more or less personal. In the <a href="#" id="go-to-writings">Writings</a> section I will be uploading some texts and poems I have written over the years. This section is mostly in Spanish, as it is my mother tongue. 
-      The <a href="#" id="go-to-images">Images</a> section will consist of a miscellaneous of pictures taken or produced by me. 
+      Moreover, I have added two sections that are going to be more or less personal. In the <a href="#" id="go-to-writings">Writings</a> section I will be uploading some texts and poems I have written over the years. It is mostly in Spanish, as it is my mother tongue. 
+      The <a href="#" id="go-to-images">Images</a> section will consist of a miscellaneous of pictures taken or produced by me.
   </p>
   
   
@@ -146,7 +187,7 @@
     <div class="tab-4">
       <label for="tab4-2">Activities</label>
       <input id="tab4-2" name="tabs-two" type="radio">
-      <div>
+      <div class = 'tab-content' id='Activities'>
         <h4>Activities</h4>
       </div>
     </div>
@@ -154,7 +195,7 @@
     <div class="tab-4">
       <label for="tab4-3">Writings</label>
       <input id="tab4-3" name="tabs-two" type="radio">
-      <div>
+      <div class = 'tab-content' id='Writings'>
         <h4>Writings</h4>
       </div>
     </div>
@@ -162,7 +203,7 @@
     <div class="tab-4">
       <label for="tab4-4">Images</label>
       <input id="tab4-4" name="tabs-two" type="radio">
-      <div>
+      <div class = 'tab-content' id ='Images '>
         <h4>Images</h4>
       </div>
     </div>
@@ -186,8 +227,34 @@
       setupTabNavigation("go-to-images", "tab4-4");
     </script>
   
-  </body>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabInputs = document.querySelectorAll("input[name='tabs-two']");
+
+  // Function to adjust the height of the body (main scrollbar) based on the active tab
+  function adjustMainScrollbar() {
+    // Get the currently active tab's content
+    const activeTab = document.querySelector("input[name='tabs-two']:checked + .tab-content");
+    
+    if (activeTab) {
+      // Set the body's height to match the active tab's height
+      document.body.style.height = activeTab.scrollHeight + "px";
+    }
+  }
+
+  // Run the function on initial load
+  adjustMainScrollbar();
+
+  // Adjust the height whenever a tab is clicked
+  tabInputs.forEach((input) => {
+    input.addEventListener("change", adjustMainScrollbar);
+  });
+});
+</script>
+</body>
   
-  
+
   
   </html>
