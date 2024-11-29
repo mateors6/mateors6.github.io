@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +14,7 @@
       letter-spacing: 0.01em;
       line-height: 1.6em;
       margin: 0;
-      padding: 100px;
-      width: auto;
+      padding: 50px;
     }
 
     h1 {
@@ -25,51 +23,6 @@
       color: rgba(255, 255, 255, 0.2);
     }
 
-    .made-with {
-      background: #fd264f;
-      color: #fff;
-      display: block;
-      font-size: 12px;
-      line-height: 1em;
-      margin: 0;
-      padding: 5px 110px;
-      position: fixed;
-      top: 20px;
-      right: -100px;
-      text-align: center;
-      text-decoration: none;
-      transform: rotate(45deg);
-    }
-
-    .documentation {
-      color: #fd264f;
-    }
-
-    a:link {
-      color: rgb(32, 243, 32);
-      background-color: transparent;
-      text-decoration: none;
-    }
-
-    /* Styling for tab content */
-    .tab-content {
-      display: none;
-      padding: 20px;
-      box-sizing: border-box;
-      overflow-y: auto;
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      opacity: 0;
-      transform: translateX(-100%); /* Starts off-screen to the left */
-    }
-
-    /* Display the active tab */
-    .tab-content.active-tab {
-      display: block;
-      opacity: 1;
-      transform: translateX(0); /* Move to original position when active */
-    }
-
-    /* Styling for the navigation links */
     .tabs {
       display: flex;
       justify-content: center;
@@ -96,18 +49,34 @@
     }
 
     .tabs a.active-tab {
-      background-color: #fd264f;
+      background-color: #fd264f; /* Red color for active tab */
     }
 
+    .tab-content {
+      display: none;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateX(-100%); /* Starts off-screen to the left */
+    }
+
+    .tab-content.active-tab {
+      display: block;
+      opacity: 1;
+      transform: translateX(0); /* Move to original position when active */
+    }
   </style>
 </head>
-
 <body>
+
+
 
   <h1>Hey, I am Mateo Rodríguez and this is my personal website.</h1>
   <p>Latest update: 29/11/24 (DD/MM/YY)</p>
 
-  <!-- Tabs -->
+
+  <!-- Tab Links -->
   <div class="tabs">
     <a href="#" id="home-link" class="tab-link">Home</a>
     <a href="#" id="history-link" class="tab-link">History</a>
@@ -115,8 +84,10 @@
     <a href="#" id="images-link" class="tab-link">Images</a>
   </div>
 
-  <!-- Tab Content -->
-  <div class="tab-content" id="home-content">
+
+
+  <!-- Tab Content Sections -->
+  <div id="home-content" class="tab-content">
     <h2>Home</h2>
     <p>
         Welcome! My name is Mateo, and I am currently finishing a Bachelor's degree in Physics at the University of Oviedo. I come from the lovely region of Asturias, which I recommend you to visit.
@@ -124,30 +95,29 @@
    </p>
         
         <p> I have created this 'blog' with the main purpose of adding details to what is written in my CV.
-                The <a href='#history-content' class = 'tab-link'>History</a> section is used to provide a more elaborated description of my academic history, but in a relaxed style and filled with personal stories.
+                The History section is used to provide a more elaborated description of my academic history, but in a relaxed style and filled with personal stories.
                 You can download my CV by clicking on the following button:<form method="get" action="CV.pdf">
                     <button type="submit">  CV  </button> </form>
         </p>
         
         <p>
-            Moreover, I have added two sections that are going to be more or less personal. In the <a href="#" id="go-to-writings">Writings</a> section I will be uploading some texts and poems I have written over the years. It is mostly in Spanish, as it is my mother tongue. 
-            The <a href="#" id="go-to-images">Images</a> section will consist of a miscellaneous of pictures taken or produced by me.
-        </p> </div>
+            Moreover, I have added two sections that are going to be more or less personal. In the Writings  section I will be uploading some texts and poems I have written over the years. It is mostly in Spanish, as it is my mother tongue. 
+            The Images section will consist of a miscellaneous of pictures taken or produced by me.
+        </p></div>
 
-  <div class="tab-content" id="history-content">
+  <div id="history-content" class="tab-content">
     <h2>History</h2>
     <h4>Cambridge First Certificate in English 2017</h4>
     <p>I had been taking private classes for about three years, and for the first time ever I had to prove my English knowledge.</p>
+ </div>
+
+  <div id="writings-content" class="tab-content">
+    <h2>Writings </h2>
   </div>
 
-  <div class="tab-content" id="writings-content">
-    <h4>Writings</h4>
-    <p>Some of my personal writings and poems will be uploaded here.</p>
-  </div>
-
-  <div class="tab-content" id="images-content">
-    <h4>Images</h4>
-    <p>Here are some images that represent my work and life.</p>
+  <div id="images-content" class="tab-content">
+    <h2>Images </h2>
+  
   </div>
 
   <script>
@@ -156,62 +126,44 @@
       // Prevent the default link behavior
       event.preventDefault();
 
-      // Remove active-tab class from all tab contents
-      const tabContents = document.querySelectorAll('.tab-content');
-      tabContents.forEach(content => content.classList.remove('active-tab'));
+      // Remove the active class from all tab content and links
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active-tab'));
+      document.querySelectorAll('.tab-link').forEach(tab => tab.classList.remove('active-tab'));
 
-      // Add active-tab class to the selected tab content
+      // Add the active class to the selected tab content
       document.getElementById(tabId).classList.add('active-tab');
-
-      // Remove active-tab class from all tab links
-      const tabs = document.querySelectorAll('.tab-link');
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-      // Add active-tab class to the selected tab link
-      event.target.classList.add('active-tab');
+      
+      // Add the active class to the selected tab link
+      const activeTabLink = document.querySelector(`#${tabId.replace('-content', '-link')}`);
+      if (activeTabLink) {
+        activeTabLink.classList.add('active-tab');
+      }
     }
 
-    // Set up event listeners for tab links
+    // Set up event listeners for the tab links to switch tabs when clicked
     document.getElementById('home-link').addEventListener('click', (event) => switchTab(event, 'home-content'));
     document.getElementById('history-link').addEventListener('click', (event) => switchTab(event, 'history-content'));
     document.getElementById('writings-link').addEventListener('click', (event) => switchTab(event, 'writings-content'));
     document.getElementById('images-link').addEventListener('click', (event) => switchTab(event, 'images-content'));
 
-    // Optionally, set the initial active tab
-    document.getElementById('home-link').click(); // Simulate a click to activate the home tab initially
+    // Set the initial active tab (optional)
+    document.getElementById('home-link').click(); // This simulates a click to activate the Home tab
+
+
+    // Links inside content to switch tabs
+    document.getElementById('go-to-images-link').addEventListener('click', (event) => {
+      switchTab(event, 'images-content'); // Switch to Images tab
+    });
+    document.getElementById('go-to-home-link').addEventListener('click', (event) => {
+      switchTab(event, 'home-content'); // Switch to Home tab
+    });
+    document.getElementById('go-to-history-link').addEventListener('click', (event) => {
+      switchTab(event, 'history-content'); // Switch to History tab
+    });
+    document.getElementById('go-to-writings-link').addEventListener('click', (event) => {
+      switchTab(event, 'writings-content'); // Switch to Writings tab
+    });
   </script>
 
-
-<script>
-  // Function to switch between tabs when clicking on links
-  function switchTab(event, tabId) {
-    event.preventDefault(); // Prevent the default anchor link behavior
-
-    // Remove active-tab class from all tab contents
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => content.classList.remove('active-tab'));
-
-    // Add active-tab class to the selected tab content
-    document.getElementById(tabId).classList.add('active-tab');
-
-    // Remove active-tab class from all links
-    const links = document.querySelectorAll('.tab-link');
-    links.forEach(link => link.classList.remove('active-tab'));
-
-    // Add active-tab class to the selected link
-    event.target.classList.add('active-tab');
-  }
-
-  // Set up event listeners for anchor links
-  document.querySelectorAll('.tab-link').forEach(link => {
-    link.addEventListener('click', function(event) {
-      const targetId = this.getAttribute('href').substring(1); // Get the tab ID from href
-      switchTab(event, targetId); // Trigger the tab switch
-    });
-  });
-
-</script>
-
 </body>
-
 </html>
